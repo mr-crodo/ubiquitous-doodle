@@ -67,7 +67,7 @@ export default {
   methods: {
     async register() {
       if(
-        this.emil !== "" &&
+        this.email !== "" &&
         this.password !== "" &&
         this.firstName !== "" &&
         this.lastName !== "" &&
@@ -85,12 +85,12 @@ export default {
           username: this.username,
           email: this.email,
         });
-        this.$router.push({ name: "Home"});
+        this.$router.push({ name: 'Home'});
         return;
       }
       this.error = true;
       this.errorMsg = "Please fill out all the fields!";
-      return
+      return;
     },
   }
 }
