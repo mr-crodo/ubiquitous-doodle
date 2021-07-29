@@ -25,7 +25,11 @@ export default {
   mounted() {},
   methods: {
     checkRouter() {
-      if (this.$route.name === "Login" || this.$route.name === "Register" || this.$route.name === "ForgotPassword") {
+      if (
+        this.$route.name === "Login" ||
+        this.$route.name === "Register" ||
+        this.$route.name === "ForgotPassword"
+      ) {
         this.navigation = true;
         return;
       }
@@ -86,7 +90,7 @@ export default {
   }
 }
 
-.button,
+button,
 .router-button {
   transition: 500ms ease all;
   cursor: pointer;
@@ -135,6 +139,12 @@ export default {
   pointer-events: none !important;
   cursor: none !important;
   background-color: rgba(128, 128, 128, 0.5) !important;
+}
+
+.error {
+  text-align: center;
+  font-size: 12px;
+  color: red;
 }
 
 .blog-card-wrap {

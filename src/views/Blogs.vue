@@ -29,8 +29,8 @@ export default {
       },
       set(payload) {
         this.$store.commit("toggleEditPost", payload);
-      }
-    }
+      },
+    },
   },
   beforeDestroy() {
     this.$store.commit("toggleEditPost", false)
