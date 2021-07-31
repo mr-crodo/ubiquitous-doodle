@@ -1,35 +1,33 @@
 <template>
   <div class="form-wrap">
-    <form action="register">
+    <form class="register">
       <p class="login-register">
-        Already have an account ?
-        <router-link class="router-link" :to="{name: 'Login'}">Login</router-link>
+        Already have an account?
+        <router-link class="router-link" :to="{ name: 'Login' }">Login</router-link>
       </p>
-      <h2>Create Your Pied Doodle Account</h2>
+      <h2>Create Your FireBlog Account</h2>
       <div class="inputs">
         <div class="input">
-          <input type="text" placeholder="First Name" required v-model="firstName" />
-          <user class="icon"/>
+          <input type="text" placeholder="First Name" v-model="firstName" />
+          <user class="icon" />
         </div>
         <div class="input">
-          <input type="text" placeholder="Last Name" required v-model="lastName" />
-          <user class="icon"/>
+          <input type="text" placeholder="Last Name" v-model="lastName" />
+          <user class="icon" />
         </div>
         <div class="input">
-          <input type="text" placeholder="Username" required v-model="username" />
-          <user class="icon"/>
+          <input type="text" placeholder="Username" v-model="username" />
+          <user class="icon" />
         </div>
         <div class="input">
-          <input type="email" placeholder="Email" required v-model="email" />
-          <email class="icon"/>
+          <input type="text" placeholder="Email" v-model="email" />
+          <email class="icon" />
         </div>
         <div class="input">
-          <input type="password" placeholder="Password" required v-model="password">
-          <password class="icon"/>
+          <input type="password" placeholder="Password" v-model="password" />
+          <password class="icon" />
         </div>
-        <div v-show="error" class="error">
-          {{ this.errorMsg }}
-        </div>
+        <div v-show="error" class="error">{{ this.errorMsg }}</div>
       </div>
       <button @click.prevent="register">Sign Up</button>
       <div class="angle"></div>
@@ -39,15 +37,14 @@
 </template>
 
 <script>
-import email from "../assets/Icons/envelope-regular.svg"
-import password from "../assets/Icons/lock-alt-solid.svg"
-import user from "../assets/Icons/user-alt-light.svg"
-import firebase from "firebase/app"
-import "firebase/auth"
-import db from "../firebase/firebaseInit"
-
+import email from "../assets/Icons/envelope-regular.svg";
+import password from "../assets/Icons/lock-alt-solid.svg";
+import user from "../assets/Icons/user-alt-light.svg";
+import firebase from "firebase/app";
+import "firebase/auth";
+import db from "../firebase/firebaseInit";
 export default {
-  name: 'Register',
+  name: "Register",
   components: {
     email,
     password,
@@ -61,17 +58,17 @@ export default {
       email: "",
       password: "",
       error: null,
-      errorMsg: ""
-    }
+      errorMsg: "",
+    };
   },
   methods: {
     async register() {
-      if(
-        this.email !== "" &&
-        this.password !== "" &&
-        this.firstName !== "" &&
-        this.lastName !== "" &&
-        this.username !== ""
+      if (
+          this.email !== "" &&
+          this.password !== "" &&
+          this.firstName !== "" &&
+          this.lastName !== "" &&
+          this.username !== ""
       ) {
         this.error = false;
         this.errorMsg = "";
@@ -85,20 +82,21 @@ export default {
           username: this.username,
           email: this.email,
         });
-        this.$router.push({ name: 'Home'});
+        this.$router.push({ name: "Home" });
         return;
       }
       this.error = true;
       this.errorMsg = "Please fill out all the fields!";
       return;
     },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.register {
+  h2 {
+    max-width: 350px;
   }
 }
-</script>
-<style lang="scss" scoped>
-  .register {
-    h2 {
-      max-width: 350px
-    }
-  }
 </style>

@@ -226,7 +226,8 @@ export default {
     display: flex;
     margin-bottom: 32px;
     input:nth-child(1) {
-      min-width: 300px;
+      max-width: 300px;
+      width: 100%;
     }
     input {
       transition: 0.5s ease-in-out all;

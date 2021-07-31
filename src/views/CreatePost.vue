@@ -258,7 +258,7 @@ async () => {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        margin-left: 0;
+        margin-left: 0!important;
       }
       input {
         display: none;
@@ -268,7 +268,7 @@ async () => {
         text-transform: initial;
         @media screen and (max-width: 800px) {
           flex-basis: 100%;
-          margin: 10px;
+          margin: 10px!important;
         }
       }
       span {
@@ -314,8 +314,7 @@ async () => {
       margin-right: 16px;
       @media screen and (max-width: 800px) {
         flex-basis: 100%;
-        margin-right: 10px;
-        margin-left: 10px;
+        margin: 0 10px 0 10px !important;
         text-align: center;
       }
     }
