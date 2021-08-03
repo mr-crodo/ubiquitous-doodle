@@ -109,6 +109,10 @@ async () => {
                         await this.$store.dispatch("getPost");
                         this.loading = false;
                         this.$router.push({ name: "ViewBlog", params: { blogid: dataBase.id} });
+                        this.blogTitle = '';
+                        this.blogHTML = '';
+                        this.$store.state.blogPhotoName = '';
+                        this.$store.state.blogPhotoFileURL = '';
                       }
           );
           return;
